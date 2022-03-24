@@ -8,4 +8,4 @@
 
 - location.hash + iframe 【hash值只可以单向传递】
 
-  
+- postMessage
