@@ -35,8 +35,6 @@
             },
             methods: {
                 sendJSONP(){
-                    console.log(this)
-                    console.log(this.$http)
                     this.$http.jsonp('http://localhost:99',{
                         params:{},
                         jsonp:'callback'
