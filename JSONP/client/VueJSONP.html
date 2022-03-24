@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 120px;
+            height: 120px;
+            background-color: aqua;
+        }
+
+        #btn {
+            background-color: #000;
+            color: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div id="box">{{info}}</div>
+        <button id="btn" @click="sendJSONP()">点击执行JSONP</button>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.3/dist/vue-resource.min.js"></script>
+    <script>
+        new Vue({
+            el:'#app',
+            data:{
+                info:''
+            },
+            methods: {
+                sendJSONP(){
+                    console.log(this)
+                    console.log(this.$http)
+                    this.$http.jsonp('http://localhost:99',{
+                        params:{},
+                        jsonp:'callback'
+                    }).then(res=>{
+                        this.info = JSON.stringify(res.data)
+                    })
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>

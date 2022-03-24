@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 120px;
+            height: 120px;
+            background-color: aqua;
+        }
+        #btn{
+            background-color: #000;
+            color:yellow;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">Hello</div>
+    <button id="btn">点击执行JSONP</button>
+    <script>
+        const box = document.getElementById('box')
+        const btn = document.getElementById('btn')
+        btn.onclick = function(){
+                const img = document.createElement('script') 
+                //原生nodejs模块
+                img.src = 'http://localhost:99?callback=fn'  
+                //express框架
+                img.src = 'http://localhost:90?callback=fn'  
+                // img.innerHTML = 'fn({name:"chaos"})'
+                document.body.appendChild(img)
+        }
+        function fn(data){
+            box.innerHTML = JSON.stringify(data)
+        }
+    </script>
+</body>
+</html>
