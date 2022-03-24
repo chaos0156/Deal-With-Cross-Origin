@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        iframe{
+            width: 500px;
+            height: 350px;
+        }
+    </style>
+</head>
+<body>
+    <iframe id='box' src="http://127.0.0.1:5501/b.html" frameborder="0"></iframe>
+    <form id="form">
+        <input type="text" id="in">
+        <input type="submit" value="点击我向B域名发送消息">
+    </form>
+    <script>
+        //给B域发送消息
+        const box = document.getElementById('box').contentWindow
+        document.getElementById('form').addEventListener('submit',function(e){
+           box.postMessage(document.getElementById('in').value,'http://127.0.0.1:5501')
+           e.preventDefault()
+           document.getElementById('in').value = ''
+        })
+    </script>
+</body>
+</html>
