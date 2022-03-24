@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        iframe{
+            width: 500px;
+            height: 500px;
+            border: solid 10px blue;
+        }
+    </style>
+</head>
+<body>
+    <iframe src="http://127.0.0.1:5502/b.html" id='box' frameborder="0"></iframe>
+    <script>
+        let iframe = document.getElementById('box')
+        //向b.html传递哈希值
+        setTimeout(()=>{
+            iframe.src = iframe.src + '#user=admin'
+        },1000)
+        //开放给同域的c.html的回调方法
+        function onCallback(res){
+            alert('data from c.html --->'+ res)
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: #000;
+            color:yellowgreen
+        }
+        iframe{
+            width: 200px;
+            height: 200px;
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+
+<body>
+    <div>你们大家好啊</div>
+    <iframe id='box' src="http://127.0.0.1:5500/c.html" frameborder="0"></iframe>
+    <script>
+        const box = document.getElementById('box')
+        window.onhashchange = function(){
+            box.src = box.src + location.hash
+        } 
+    </script>
+</body>
+
+</html>

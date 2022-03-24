@@ -27,24 +27,24 @@
     <script>
         $(document).ready(function () {
             $('#btn').click(function () {
-                $.ajax({
-                    url: 'http://localhost:99',
-                    type: 'GET',
-                    dataType: 'jsonp',
-                    success: function (res) {
-                        $('#box').html(JSON.stringify(res))
-                    }
-                })
                 // $.ajax({
-                //     url:'http://localhost:99',
-                //     type:'GET',
-                //     dataType:'jsonp',
-                //     jsonp:'callback',
-                //     jsonpCallback:'fn',
-                //     success:function(res){
+                //     url: 'http://localhost:99',
+                //     type: 'GET',
+                //     dataType: 'jsonp',
+                //     success: function (res) {
                 //         $('#box').html(JSON.stringify(res))
                 //     }
                 // })
+                $.ajax({
+                    url:'http://localhost:99',
+                    type:'GET',
+                    dataType:'jsonp',
+                    jsonp:'callback',
+                    jsonpCallback:'fn',
+                    success:function(res){
+                        $('#box').html(JSON.stringify(res))
+                    }
+                })
             })
         })
     </script>
